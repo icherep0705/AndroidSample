@@ -14,6 +14,9 @@ import com.example.androidsampleapp.databinding.CartListItemBinding
 import com.example.androidsampleapp.service.CardObject
 import com.example.androidsampleapp.service.Info
 
+/**
+ * PageAdapter class
+ */
 class PageAdapter: RecyclerView.Adapter<PageViewHolder>() {
 
     var cardList: List<CardObject> = listOf()
@@ -37,6 +40,9 @@ class PageAdapter: RecyclerView.Adapter<PageViewHolder>() {
     override fun getItemCount() = cardList.size
 }
 
+/**
+ * PageViewHolder class
+ */
 class PageViewHolder(private val binding: CartListItemBinding): RecyclerView.ViewHolder(binding.root) {
 
     fun bind(cardObj: CardObject) {
@@ -47,7 +53,7 @@ class PageViewHolder(private val binding: CartListItemBinding): RecyclerView.Vie
                     titleLabel.visibility = View.VISIBLE
                     it.attributes?.let {attr ->
                         titleLabel.setTextColor(Color.parseColor(attr.textColor))
-                        titleLabel.textSize = attr.font?.size?.toFloat() ?: 30f
+                        titleLabel.textSize = attr.font?.size?.toFloat() ?: DEFAULT_TEXT_SIZE
                     }
                 }
 
@@ -80,11 +86,12 @@ class PageViewHolder(private val binding: CartListItemBinding): RecyclerView.Vie
         v.visibility = View.VISIBLE
         info.attributes?.let {attr ->
             v.setTextColor(Color.parseColor(attr.textColor))
-            v.textSize = attr.font?.size?.toFloat() ?: 30f
+            v.textSize = attr.font?.size?.toFloat() ?: DEFAULT_TEXT_SIZE
         }
     }
 
     companion object {
         private const val CARD_TYPE_TEXT = "text"
+        private const val DEFAULT_TEXT_SIZE = 30f
     }
 }

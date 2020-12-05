@@ -13,6 +13,10 @@ import com.example.androidsampleapp.R
 import com.example.androidsampleapp.databinding.ActivityMainBinding
 import com.example.androidsampleapp.viewmodel.MainActivityViewModel
 
+/**
+ *
+ * MainActivity class.
+ */
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainActivityViewModel by lazy {
@@ -31,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         getPage()
     }
 
+    /**
+     * [initUI] is used to initialize recyclerView, set layoutManager and adapter
+     */
     private fun initUI() {
         binding.pageContainer.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
@@ -39,6 +46,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * [getPage] is used to get data from dataSource
+     */
     private fun getPage() {
         Log.d(TAG, "getPage()")
 

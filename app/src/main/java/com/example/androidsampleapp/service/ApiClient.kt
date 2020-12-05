@@ -15,7 +15,6 @@ object ApiClient {
     private const val TIMEOUT_SECONDS = 15L
     private const val BASE_URL = "https://private-8ce77c-tmobiletest.apiary-mock.com"
 
-
     fun getClient(): Retrofit {
         val logging = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -26,12 +25,8 @@ object ApiClient {
             .addInterceptor(logging)
             .build()
 
-        val gson = GsonBuilder()
-            //.setLenient()
-            .create()
-
         return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .baseUrl(BASE_URL)
             .client(httpClient)
             .build()

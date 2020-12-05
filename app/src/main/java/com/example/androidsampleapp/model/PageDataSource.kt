@@ -6,6 +6,10 @@ import com.example.androidsampleapp.service.BackendApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 
+/**
+ *
+ * PageDataSource interface
+ */
 class PageDataSource: IDataSource {
 
     private val mCoroutineContext = Dispatchers.IO + SupervisorJob()

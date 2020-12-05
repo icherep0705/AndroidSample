@@ -10,6 +10,9 @@ import retrofit2.http.GET
  */
 interface BackendApi {
 
+    /**
+     * [getPage] is used to get data from Rest Api, returns [Response]
+     */
     @GET("/test/home")
     suspend fun getPage(): Response
 }
